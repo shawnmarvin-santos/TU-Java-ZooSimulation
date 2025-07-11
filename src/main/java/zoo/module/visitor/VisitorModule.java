@@ -2,7 +2,7 @@ package zoo.module.visitor;
 
 import java.util.Scanner;
 
-public class visitorModule {
+public class VisitorModule {
 
     Scanner scan = new Scanner(System.in);
 
