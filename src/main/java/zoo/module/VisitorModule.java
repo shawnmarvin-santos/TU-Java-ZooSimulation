@@ -17,7 +17,7 @@ public class VisitorModule {
     private final AdminRepository adminRepository = AdminRepository.getInstance();
     private final AnimalRepository animalRepository = AnimalRepository.getInstance();
 
-    private Visitor visitor;
+    private final Visitor visitor;
 
     public VisitorModule(Visitor visitor){
         this.visitor = visitor;
@@ -61,7 +61,7 @@ public class VisitorModule {
                 Handler pachydermHandler = adminRepository.getZooStaff().getPachydermHandler();
                 Pachyderm pachyderm = (Pachyderm) animalRepository.getAssignedAnimals(pachydermHandler).getFirst();
                 visitor.goTo(pachydermHandler.getLocation());
-                if (feed == 1){
+                if (feed == 1) {
                     //pachyderm eats
                 }
                 pachyderm.roam();
@@ -70,7 +70,7 @@ public class VisitorModule {
                 Handler felineHandler = adminRepository.getZooStaff().getFelineHandler();
                 Feline feline = (Feline) animalRepository.getAssignedAnimals(felineHandler).getFirst();
                 visitor.goTo(felineHandler.getLocation());
-                if (feed == 1){
+                if (feed == 1) {
                     //feline eats
                 }
                 feline.roam();
@@ -79,7 +79,7 @@ public class VisitorModule {
                 Handler birdHandler = adminRepository.getZooStaff().getBirdHandler();
                 Bird bird = (Bird) animalRepository.getAssignedAnimals(birdHandler).getFirst();
                 visitor.goTo(birdHandler.getLocation());
-                if (feed == 1){
+                if (feed == 1) {
                     //bird eats
                 }
                 bird.roam();
@@ -93,6 +93,7 @@ public class VisitorModule {
     //To Improve, but works
     private void visitShop(){
         Vendor vendor = adminRepository.getZooStaff().getShopVendorOnDuty();
+        visitor.goTo(vendor.getLocation());
 
         vendor.Sell();
 
@@ -101,6 +102,7 @@ public class VisitorModule {
 
     private void visitHospital(){
         Veterinarian veterinarian = adminRepository.getZooStaff().getVeterinarianOnDuty();
+        visitor.goTo(veterinarian.getLocation());
 
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
 

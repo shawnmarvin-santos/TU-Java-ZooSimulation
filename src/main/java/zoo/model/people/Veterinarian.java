@@ -1,5 +1,6 @@
 package zoo.model.people;
 
+import zoo.model.building.Building;
 import zoo.model.building.Hospital;
 import zoo.utils.ConsoleUtil;
 
@@ -15,5 +16,9 @@ public class Veterinarian extends People{
 
     public void Lecture() {
         ConsoleUtil.println("Dr. " + name +" Begins lecture...");
+    }
+
+    public Building getLocation(){
+        return location;
     }
 }

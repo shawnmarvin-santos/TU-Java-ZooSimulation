@@ -42,4 +42,8 @@ public class Vendor extends People{
 
         ConsoleUtil.println("");
     }
+
+    public Building getLocation (){
+        return location;
+    }
 }
