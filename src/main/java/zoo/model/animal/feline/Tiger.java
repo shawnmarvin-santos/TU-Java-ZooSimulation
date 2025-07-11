@@ -2,6 +2,7 @@ package zoo.model.animal.feline;
 
 import zoo.model.animal.Feline;
 import zoo.model.building.enclosure.Enclosure;
+import zoo.model.building.enclosure.FelineEnclosure;
 import zoo.utils.ConsoleUtil;
 
 public class Tiger extends Feline {
@@ -9,11 +10,10 @@ public class Tiger extends Feline {
 
     public Tiger(){super();}
 
-    public Tiger(boolean healthy, String name, Enclosure location){
-        super(healthy, name, location);
-    }
-
-    public Tiger(String s) {
+    public Tiger(String name) {
+        this.name = name;
+        this.healthy = true;
+        this.location = new FelineEnclosure();
     }
 
     public  void makeSound() {

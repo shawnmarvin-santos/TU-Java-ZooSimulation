@@ -95,17 +95,16 @@ public class AdminModule {
     }
 
     private void accessHandlerModule() {
-        if(AdminRepository.getInstance().checkIfStaffSetup()){
+        if(!AdminRepository.getInstance().checkIfStaffSetup()){
             return;
         }
 
         String handlerName = InputValidationUtil.promptForString(MessageConstants.ENTER_HANDLER_PROMPT);
 
         ZooStaff zooStaff = AdminRepository.getInstance().getZooStaff();
-        if(handlerName.equalsIgnoreCase(zooStaff.getBirdHandler().getName())
-           || handlerName.equalsIgnoreCase(zooStaff.getFelineHandler().getName())
-           || handlerName.equalsIgnoreCase(zooStaff.getPachydermHandler().getName())){
-            //HandlerModule handlerModule = new HandlerModule();
+        if(handlerName.equalsIgnoreCase(zooStaff.getBirdHandler().getName())){
+            HandlerModule handlerModule = new HandlerModule(zooStaff.getBirdHandler());
+
         } else {
             ConsoleUtil.println(MessageConstants.INVALID_HANDLER_NAME_ERROR);
         }

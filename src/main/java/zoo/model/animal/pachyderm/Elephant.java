@@ -2,6 +2,8 @@ package zoo.model.animal.pachyderm;
 
 import zoo.model.animal.Pachyderm;
 import zoo.model.building.enclosure.Enclosure;
+import zoo.model.building.enclosure.FelineEnclosure;
+import zoo.model.building.enclosure.PachydermEnclosure;
 import zoo.utils.ConsoleUtil;
 
 public class Elephant extends Pachyderm {
@@ -13,7 +15,10 @@ public class Elephant extends Pachyderm {
         super(healthy, name, location);
     }
 
-    public Elephant(String s) {
+    public Elephant(String name) {
+        this.name = name;
+        this.healthy = true;
+        this.location = new PachydermEnclosure();
     }
 
     public  void makeSound() {

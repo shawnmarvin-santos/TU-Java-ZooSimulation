@@ -11,4 +11,8 @@ public class Handler extends People{
     public String getName(){
         return name;
     }
+
+    public Building getLocation(){
+        return location;
+    }
 }

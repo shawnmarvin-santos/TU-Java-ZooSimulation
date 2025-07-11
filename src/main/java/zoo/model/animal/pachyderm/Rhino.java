@@ -2,6 +2,7 @@ package zoo.model.animal.pachyderm;
 
 import zoo.model.animal.Pachyderm;
 import zoo.model.building.enclosure.Enclosure;
+import zoo.model.building.enclosure.PachydermEnclosure;
 import zoo.utils.ConsoleUtil;
 
 public class Rhino extends Pachyderm {
@@ -9,11 +10,10 @@ public class Rhino extends Pachyderm {
 
     public Rhino(){super();}
 
-    public Rhino(boolean healthy, String name, Enclosure location){
-        super(healthy, name, location);
-    }
-
-    public Rhino(String s) {
+    public Rhino(String name) {
+        this.name = name;
+        this.healthy = true;
+        this.location = new PachydermEnclosure();
     }
 
     public  void makeSound() {

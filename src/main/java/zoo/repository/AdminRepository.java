@@ -53,11 +53,11 @@ public class AdminRepository {
     }
 
     public boolean checkIfStaffSetup(){
-        boolean returnValue = false;
-        if(isStaffSetup) {
-            returnValue = true;
+        boolean returnValue = true;
+        if(!isStaffSetup) {
+            returnValue = false;
+            ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
         }
-        ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
         return returnValue;
     }
 

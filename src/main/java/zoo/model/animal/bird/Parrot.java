@@ -1,17 +1,17 @@
 package zoo.model.animal.bird;
 
 import zoo.model.animal.Bird;
+import zoo.model.building.enclosure.BirdEnclosure;
 import zoo.model.building.enclosure.Enclosure;
 import zoo.utils.ConsoleUtil;
 
 public class Parrot extends Bird {
     private ConsoleUtil console = new ConsoleUtil();
-
-    public Parrot(boolean healthy, String name, Enclosure location){
-        super(healthy, name, location);
-    }
-
-    public Parrot(String s) {
+    
+    public Parrot(String name) {
+        this.name = name;
+        this.healthy = true;
+        this.location = new BirdEnclosure();
     }
 
     public  void makeSound() {

@@ -3,6 +3,13 @@ package zoo.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import zoo.model.animal.Animal;
+import zoo.model.animal.Bird;
+import zoo.model.animal.Feline;
+import zoo.model.animal.Pachyderm;
+import zoo.model.building.enclosure.BirdEnclosure;
+import zoo.model.building.enclosure.FelineEnclosure;
+import zoo.model.building.enclosure.PachydermEnclosure;
+import zoo.model.people.Handler;
 import zoo.utils.AnimalFactoryUtil;
 import zoo.utils.MessageConstants;
 
@@ -42,6 +49,29 @@ public class AnimalRepository {
         } catch (IOException e) {
             throw new IllegalArgumentException(MessageConstants.FILE_NOT_FOUND);
         }
+    }
+
+    public List<Animal> getAssignedAnimals(Handler handler){
+        if(handler.getLocation() instanceof BirdEnclosure){
+            return filterAnimalByType("Bird");
+        }
+        if(handler.getLocation() instanceof FelineEnclosure){
+            return filterAnimalByType("Feline");
+        }
+        if(handler.getLocation() instanceof PachydermEnclosure){
+            return filterAnimalByType("Pachyderm");
+        }
+
+        throw new IllegalArgumentException("Unknown Handler Enclosure Assignment");
+    }
+
+    private List<Animal> filterAnimalByType(String type){
+        return animals.stream().filter(animal -> switch (type.toLowerCase()) {
+            case "bird" -> animal instanceof Bird;
+            case "feline" -> animal instanceof Feline;
+            case "pachyderm" -> animal instanceof Pachyderm;
+            default -> false;
+        }).toList();
     }
 
 }

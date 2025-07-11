@@ -1,7 +1,9 @@
 package zoo.model.animal.feline;
 
 import zoo.model.animal.Feline;
+import zoo.model.building.enclosure.BirdEnclosure;
 import zoo.model.building.enclosure.Enclosure;
+import zoo.model.building.enclosure.FelineEnclosure;
 import zoo.utils.ConsoleUtil;
 
 public class Cheetah extends Feline {
@@ -13,7 +15,10 @@ public class Cheetah extends Feline {
         super(healthy, name, location);
     }
 
-    public Cheetah(String s) {
+    public Cheetah(String name) {
+        this.name = name;
+        this.healthy = true;
+        this.location = new FelineEnclosure();
     }
 
     public  void makeSound() {
