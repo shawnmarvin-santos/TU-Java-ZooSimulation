@@ -1,12 +1,8 @@
-package zoo.module.visitor;
+package zoo.module;
 
-import zoo.model.animal.pachyderm.Rhino;
-import zoo.model.building.enclosure.PachydermEnclosure;
 import zoo.model.people.Visitor;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
-
-import java.util.Scanner;
 
 public class VisitorModule {
 
