@@ -17,6 +17,6 @@ public class Lion extends Feline {
     }
 
     public  void makeSound() {
-        console.println(this.name + " the " + this.getClass().getCanonicalName() + " roars");
+        console.println(this.name + " the " + this.getClass().getSimpleName() + " roars");
     }
 }

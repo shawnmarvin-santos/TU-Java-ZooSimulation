@@ -22,6 +22,6 @@ public class Elephant extends Pachyderm {
     }
 
     public  void makeSound() {
-        console.println(this.name + " the " + this.getClass().getCanonicalName() + " snorts");
+        console.println(this.name + " the " + this.getClass().getSimpleName() + " snorts");
     }
 }

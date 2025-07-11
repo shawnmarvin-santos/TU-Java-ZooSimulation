@@ -22,6 +22,6 @@ public class Cheetah extends Feline {
     }
 
     public  void makeSound() {
-        console.println(this.name + " the " + this.getClass().getCanonicalName() + " purrs");
+        console.println(this.name + " the " + this.getClass().getSimpleName() + " purrs");
     }
 }

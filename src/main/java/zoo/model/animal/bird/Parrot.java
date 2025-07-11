@@ -15,6 +15,6 @@ public class Parrot extends Bird {
     }
 
     public  void makeSound() {
-        console.println(this.name + " the " + this.getClass().getCanonicalName() + " squawks");
+        console.println(this.name + " the " + this.getClass().getSimpleName() + " squawks");
     }
 }

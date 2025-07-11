@@ -66,6 +66,7 @@ public class VisitorModule {
                 }
                 pachyderm.roam();
                 pachyderm.makeSound();
+                break;
             case 2:
                 Handler felineHandler = adminRepository.getZooStaff().getFelineHandler();
                 Feline feline = (Feline) animalRepository.getAssignedAnimals(felineHandler).getFirst();
@@ -75,6 +76,7 @@ public class VisitorModule {
                 }
                 feline.roam();
                 feline.makeSound();
+                break;
             case 3:
                 Handler birdHandler = adminRepository.getZooStaff().getBirdHandler();
                 Bird bird = (Bird) animalRepository.getAssignedAnimals(birdHandler).getFirst();
@@ -84,6 +86,7 @@ public class VisitorModule {
                 }
                 bird.roam();
                 bird.makeSound();
+                break;
         }
 
         ConsoleUtil.println("");
