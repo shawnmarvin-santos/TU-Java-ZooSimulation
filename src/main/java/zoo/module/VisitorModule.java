@@ -39,7 +39,7 @@ public class VisitorModule {
         }
     }
 
-    public void visitEnclosure(){
+    private void visitEnclosure(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_ENCLOSURE_BANNER);
         int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
         ConsoleUtil.println("");
@@ -72,7 +72,7 @@ public class VisitorModule {
     }
 
     //To Improve, but works
-    public void visitShop(){
+    private void visitShop(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_SHOP_BANNER);
 
         int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
@@ -95,7 +95,7 @@ public class VisitorModule {
                 break;
         }
 
-        int checkout = InputValidationUtil.promptForOption("Proceed to checkout(Yes(1)/No(2)", 2);
+        int checkout = InputValidationUtil.promptForOption("Proceed to checkout(Yes(1)/No(2): ", 2);
         if (checkout == 1){
             ConsoleUtil.println("Payment Successful!");
             //receipt here pag may time to improve
@@ -105,12 +105,11 @@ public class VisitorModule {
         ConsoleUtil.println("What would you like to do next?");
     }
 
-    public void visitHospital(){
+    private void visitHospital(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
 
         int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 5);
 
-        ConsoleUtil.println("Selected:");
         switch (option){
             case 1:
                 //healthy=false animals in hospital
@@ -134,7 +133,7 @@ public class VisitorModule {
         }
     }
 
-    public void leaveZoo(){
+    private void leaveZoo(){
         ConsoleUtil.println("Thank you for visiting!");
     }
 }

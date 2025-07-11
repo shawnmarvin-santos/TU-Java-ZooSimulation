@@ -24,12 +24,13 @@ public class MessageConstants {
             """;
     public static final String VISITOR_MAIN_MENU_BANNER = """
             === Visitor ===
+            1. Visit Enclosure
             2. Visit Shop
             3. Visit Hospital
             4. Leave Zoo
             """;
     public static final String VISITOR_VISIT_ENCLOSURE_BANNER = """
-            ===Zoo Enclosure===
+            === Zoo Enclosure ===
             Choose Enclosure:
             1. Pachyderm
             2. Feline
