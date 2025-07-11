@@ -32,6 +32,10 @@ public abstract class Animal {
 
     public String getName(){ return name; }
 
+    public void setHealthy (boolean healthy){
+        this.healthy = healthy;
+    }
+
     public abstract void goToLocation(Building building);
     public abstract Building getLocation();
 }

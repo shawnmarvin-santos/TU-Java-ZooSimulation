@@ -55,6 +55,7 @@ public class HandlerModule {
                 break;
             case 3:
                 animal.goToLocation(new Hospital());
+                animal.setHealthy(false);
                 AnimalRepository.getInstance().admitAnimalToHospital(animal);
                 break;
         }
