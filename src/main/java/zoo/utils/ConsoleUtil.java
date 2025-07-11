@@ -27,6 +27,14 @@ public class ConsoleUtil {
     }
 
     /**
+     * For printing warning messages with a format, the format can be changed on Message Constants
+     * @param warningMessage formatted message to be printed, pass messages from Message Constants
+     */
+    public static void printWaning(String warningMessage) {
+        System.out.printf(MessageConstants.WARNING_MESSAGE_FORMAT, warningMessage);
+    }
+
+    /**
      * For printing formatted messages with a given argument
      * @param message message to be printed that has a specific format (%s, %d, %.2f)
      * @param args arguments to be used on the message

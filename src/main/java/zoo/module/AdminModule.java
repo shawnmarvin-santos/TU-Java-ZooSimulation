@@ -1,7 +1,10 @@
 package zoo.module;
 
-import zoo.model.people.Veterinarian;
-import zoo.model.people.ZooStaff;
+import zoo.model.building.Shop;
+import zoo.model.building.enclosure.BirdEnclosure;
+import zoo.model.building.enclosure.FelineEnclosure;
+import zoo.model.building.enclosure.PachydermEnclosure;
+import zoo.model.people.*;
 import zoo.repository.AdminRepository;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
@@ -47,7 +50,7 @@ public class AdminModule {
                     setupZooStaff();
                     break;
                 case 2:
-                    //accessHandlerModule();
+                    accessHandlerModule();
                     break;
                 case 3:
                     adminRepository.openZoo();
@@ -73,7 +76,18 @@ public class AdminModule {
         String ticketVendor = InputValidationUtil.promptForString(MessageConstants.ENTER_TICKET_PROMPT);
         String shopVendor = InputValidationUtil.promptForString(MessageConstants.ENTER_SHOP_PROMPT);
 
-        //ZooStaff staff = new ZooStaff(new Veterinarian())
+        ZooStaff staff = new ZooStaff(new Veterinarian(vet),
+                new Vendor(shopVendor,new Shop()),
+                new Vendor(ticketVendor, new Shop()),
+                new Manager(manager),
+                new Handler(pachydermHandler, new PachydermEnclosure()),
+                new Handler(birdHandler, new BirdEnclosure()),
+                new Handler(felineHandler, new FelineEnclosure())
+        );
+        AdminRepository.getInstance().setupStaff(staff);
     }
 
+    private void accessHandlerModule() {
+
+    }
 }

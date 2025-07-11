@@ -15,11 +15,14 @@ public class MessageConstants {
             5. Exit
             """;
     //SUCCESS MESSAGE
-    public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!";
+    public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!\n";
+    public static final String STAFF_SETUP_SUCCESSFUL_MESSAGE = "Staff has been successfully setup!\n";
 
     //WARNING MESSAGE
-    public static final String ZOO_IS_ALREADY_OPEN_WARNING = "Zoo is already open\n";
-    public static final String ZOO_IS_NOT_OPEN_WARNING = "Zoo is not open\n";
+    public static final String WARNING_MESSAGE_FORMAT = "WARNING: %s \n";
+    public static final String ZOO_IS_ALREADY_OPEN_WARNING = "Zoo is already open.";
+    public static final String ZOO_IS_NOT_OPEN_WARNING = "Zoo is not open.";
+    public static final String ZOO_STAFF_IS_NOT_YET_SET_UP = "Staff has not been setup yet.";
 
     //ERROR MESSAGES
     public static final String ERROR_MESSAGE_FORMAT = "Error: %s.";
@@ -29,7 +32,6 @@ public class MessageConstants {
     public static final String INVALID_OPTION_ERROR_MESSAGE = "Invalid option.";
     public static final String LOGIN_UNSUCCESSFUL_ERROR_MESSAGE = "Invalid login attempt!";
     public static final String LOGIN_UNSUCCESSFUL_LIMIT_REACHED = "Invalid login attempt limit reached! Please try again later";
-
 
     //PROMPTS
     public static final String LOGIN_USERNAME_PROMPT = "Input username: ";
@@ -42,7 +44,5 @@ public class MessageConstants {
     public static final String ENTER_PACHYDERM_HANDLER_PROMPT = "Enter Handler for Pachyderm Enclosure: ";
     public static final String ENTER_VETERINARIAN_PROMPT = "Enter Veterinarian's name: ";
     public static final String ENTER_MANAGER_PROMPT = "Enter Manager's name: ";
-
-
 
 }

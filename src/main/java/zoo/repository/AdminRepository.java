@@ -13,6 +13,8 @@ public class AdminRepository {
     private static final Scanner scanner = new Scanner(System.in);
     private ZooStaff zooStaff;
     private boolean isZooOpen;
+    private boolean isStaffSetup;
+
     final String ADMIN_USERNAME = "admin";
     final String ADMIN_PASSWORD = "adminadmin";
 
@@ -34,10 +36,14 @@ public class AdminRepository {
     }
 
     public void openZoo(){
+        if(!isStaffSetup){
+            ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
+            return;
+        }
         if(!isZooOpen){
             isZooOpen = true;
         } else {
-            ConsoleUtil.println(MessageConstants.ZOO_IS_ALREADY_OPEN_WARNING);
+            ConsoleUtil.printWaning(MessageConstants.ZOO_IS_ALREADY_OPEN_WARNING);
         }
     }
 
@@ -45,7 +51,13 @@ public class AdminRepository {
         if(isZooOpen){
             isZooOpen = false;
         } else {
-            ConsoleUtil.println(MessageConstants.ZOO_IS_NOT_OPEN_WARNING);
+            ConsoleUtil.printWaning(MessageConstants.ZOO_IS_NOT_OPEN_WARNING);
         }
+    }
+
+    public void setupStaff(ZooStaff staff){
+        zooStaff = staff;
+        isStaffSetup = true;
+        ConsoleUtil.println(MessageConstants.STAFF_SETUP_SUCCESSFUL_MESSAGE);
     }
 }
