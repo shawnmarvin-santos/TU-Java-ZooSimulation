@@ -60,4 +60,8 @@ public class AdminRepository {
         isStaffSetup = true;
         ConsoleUtil.println(MessageConstants.STAFF_SETUP_SUCCESSFUL_MESSAGE);
     }
+
+    public ZooStaff getZooStaff(){
+        return zooStaff;
+    }
 }

@@ -1,6 +1,9 @@
 package zoo.module;
 
+import zoo.model.people.Vendor;
+import zoo.model.people.Veterinarian;
 import zoo.model.people.Visitor;
+import zoo.repository.AdminRepository;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
 import zoo.utils.MessageConstants;
@@ -106,6 +109,9 @@ public class VisitorModule {
     }
 
     private void visitHospital(){
+        AdminRepository adminRepository = AdminRepository.getInstance();
+        Veterinarian vet = adminRepository.getZooStaff().getVeterinarianOnDuty();
+
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
 
         int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 5);
@@ -118,12 +124,10 @@ public class VisitorModule {
                 //healthy=true animals in hospital
                 break;
             case 3:
-                //get doctor name
-                ConsoleUtil.println("Dr. " + "" +" Begins lecture...");
+                vet.Lecture();
                 break;
             case 4:
-                //get doctor name
-                ConsoleUtil.println("Dr. " + "" +" Begins healing sick animals...");
+                vet.Heal();
                 break;
             case 5:
                 ConsoleUtil.println("Thank you for visiting the hospital!");
