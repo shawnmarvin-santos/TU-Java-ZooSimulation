@@ -76,41 +76,17 @@ public class VisitorModule {
 
     //To Improve, but works
     private void visitShop(){
-        ConsoleUtil.println(MessageConstants.VISITOR_VISIT_SHOP_BANNER);
+        AdminRepository adminRepository = AdminRepository.getInstance();
+        Vendor vendor = adminRepository.getZooStaff().getShopVendorOnDuty();
 
-        int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
+        vendor.Sell();
 
-        ConsoleUtil.println("Selected:");
-        switch (option){
-            case 1:
-                ConsoleUtil.println("Soft Drink (30)");
-                break;
-            case 2:
-                ConsoleUtil.println("Popcorn (50)");
-                break;
-            case 3:
-                ConsoleUtil.println("Plush toy (120)");
-                break;
-            case 4:
-                ConsoleUtil.println("Keychain (45)");
-                break;
-            default:
-                break;
-        }
-
-        int checkout = InputValidationUtil.promptForOption("Proceed to checkout(Yes(1)/No(2): ", 2);
-        if (checkout == 1){
-            ConsoleUtil.println("Payment Successful!");
-            //receipt here pag may time to improve
-        }
-
-        ConsoleUtil.println("");
         ConsoleUtil.println("What would you like to do next?");
     }
 
     private void visitHospital(){
         AdminRepository adminRepository = AdminRepository.getInstance();
-        Veterinarian vet = adminRepository.getZooStaff().getVeterinarianOnDuty();
+        Veterinarian veterinarian = adminRepository.getZooStaff().getVeterinarianOnDuty();
 
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
 
@@ -124,10 +100,10 @@ public class VisitorModule {
                 //healthy=true animals in hospital
                 break;
             case 3:
-                vet.Lecture();
+                veterinarian.Lecture();
                 break;
             case 4:
-                vet.Heal();
+                veterinarian.Heal();
                 break;
             case 5:
                 ConsoleUtil.println("Thank you for visiting the hospital!");

@@ -31,4 +31,8 @@ public class ZooStaff {
     public Veterinarian getVeterinarianOnDuty(){
         return vetOnDuty;
     }
+
+    public Vendor getShopVendorOnDuty(){
+        return shopVendorOnDuty;
+    }
 }
