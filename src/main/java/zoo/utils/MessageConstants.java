@@ -14,6 +14,44 @@ public class MessageConstants {
             4. Close Zoo to Visitors
             5. Exit
             """;
+    public static final String TICKET_MAIN_MENU_BANNER = """
+            === Zoo Ticket Shop ===
+            Welcome! Here's what you can expect in the zoo:
+            Visit animal enclosures.
+            Purchase items in our shop
+            Listen to science lectures at the Hospital
+            
+            """;
+    public static final String VISITOR_MAIN_MENU_BANNER = """
+            === Visitor ===
+            2. Visit Shop
+            3. Visit Hospital
+            4. Leave Zoo
+            """;
+    public static final String VISITOR_VISIT_ENCLOSURE_BANNER = """
+    ===Zoo Enclosure===
+    Choose Enclosure:
+    1. Pachyderm
+    2. Feline
+    3. Bird
+    """;
+    public static final String VISITOR_VISIT_SHOP_BANNER = """
+    == Zoo Shop ===
+    Available Products:
+    1. Soft Drink - 30
+    2. Popcorn - 50
+    3. Plush toy - 120
+    4. Keychain - 45
+    """;
+    public static final String VISITOR_VISIT_HOSPITAL_BANNER = """
+    === Zoo Hospital ===
+    1. View Sick Animals
+    2. View Healed Animals
+    3. Attend Science Lecture
+    4. Watch Veterinarian Heal Animals
+    5. Exit
+    """;
+
     //SUCCESS MESSAGE
     public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!\n";
     public static final String STAFF_SETUP_SUCCESSFUL_MESSAGE = "Staff has been successfully setup!\n";

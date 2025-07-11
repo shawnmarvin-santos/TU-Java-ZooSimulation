@@ -4,6 +4,7 @@ import zoo.model.building.Building;
 import zoo.model.people.Visitor;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
+import zoo.utils.MessageConstants;
 
 import java.util.Random;
 
@@ -11,26 +12,18 @@ public class TicketModule {
 
     private Random random = new Random();
 
-    private ConsoleUtil console = new ConsoleUtil();
-    private InputValidationUtil input = new InputValidationUtil();
-
     private String ticketCode;
 
     public void ticketMainMenu() {
-        console.println("===Zoo Ticket Shop===");
-        console.println("Welcome! Here's what you can expect in the zoo:");
-        console.println("Visit animal enclosures.");
-        console.println("Purchase items in our shop");
-        console.println("Listen to science lectures at the Hospital");
-        console.println("");
-        int bought = input.promptForOption("Would you like to buy a ticket? (Yes(1)/No(2): ",2);
-        console.println("");
+        ConsoleUtil.println(MessageConstants.TICKET_MAIN_MENU_BANNER);
+        int bought = InputValidationUtil.promptForOption("Would you like to buy a ticket? (Yes(1)/No(2): ",2);
+        ConsoleUtil.println("");
 
         String name;
         if (bought == 1){
-            name = input.promptForString("Enter your name: ");
-            int age = (int) input.promptForDouble("Enter your age: ");
-            input.validateNonNegative(age);
+            name = InputValidationUtil.promptForString("Enter your name: ");
+            int age = (int) InputValidationUtil.promptForDouble("Enter your age: ");
+            InputValidationUtil.validateNonNegative(age);
 
             String type = "";
             double price = 0d;
@@ -49,21 +42,21 @@ public class TicketModule {
             }
             String formattedPrice = Double.toString(price);
 
-            console.println("");
-            console.println("You qualify for a " + type + " ticket.");
-            console.println("Ticket Price: " + formattedPrice);
-            console.println("");
-            int purchaseTicket = input.promptForOption("Proceed with purcase? Yes(1)/No(2): ",2);
-            console.println("");
+            ConsoleUtil.println("");
+            ConsoleUtil.println("You qualify for a " + type + " ticket.");
+            ConsoleUtil.println("Ticket Price: " + formattedPrice);
+            ConsoleUtil.println("");
+            int purchaseTicket = InputValidationUtil.promptForOption("Proceed with purcase? Yes(1)/No(2): ",2);
+            ConsoleUtil.println("");
 
             if (purchaseTicket == 1) {
-                console.println("Ticket purchased!");
+                ConsoleUtil.println("Ticket purchased!");
                 int code = random.nextInt(8999) + 1000;
                 this.ticketCode = "ZOO-"+code;
-                console.println("Your ticket code is: "+this.ticketCode);
+                ConsoleUtil.println("Your ticket code is: "+this.ticketCode);
 
-                console.println("[Ticket added to system]");
-                console.println("");
+                ConsoleUtil.println("[Ticket added to system]");
+                ConsoleUtil.println("");
                 Visitor visitor = createVisitor(name);
                 this.visitorEntry(visitor);
             }
@@ -71,19 +64,19 @@ public class TicketModule {
         }
     }
 
-    public void visitorEntry(Visitor visitor){
-        console.println("===Visitor Entry===");
-        String ticket = input.promptForString("Enter your ticket code: ");
+    private void visitorEntry(Visitor visitor){
+        ConsoleUtil.println("===Visitor Entry===");
+        String ticket = InputValidationUtil.promptForString("Enter your ticket code: ");
         if (ticket.equals(this.ticketCode)){
-            console.println("");
-            console.println("Welcome to the zoo!");
-            console.println("");
+            ConsoleUtil.println("");
+            ConsoleUtil.println("Welcome to the zoo!");
+            ConsoleUtil.println("");
             VisitorModule visitorModule = new VisitorModule(visitor);
             visitorModule.visitorMainMenu();
         }
     }
 
-    public Visitor createVisitor(String name){
+    private Visitor createVisitor(String name){
         return new Visitor(name);
     }
 }
