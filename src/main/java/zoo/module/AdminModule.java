@@ -54,6 +54,7 @@ public class AdminModule {
                     break;
                 case 3:
                     adminRepository.openZoo();
+                    accessTicketModule();
                     break;
                 case 4:
                     adminRepository.closeZoo();
@@ -85,6 +86,11 @@ public class AdminModule {
                 new Handler(felineHandler, new FelineEnclosure())
         );
         AdminRepository.getInstance().setupStaff(staff);
+    }
+
+    private void accessTicketModule() {
+        TicketModule ticketModule = new TicketModule();
+        ticketModule.ticketMainMenu();
     }
 
     private void accessHandlerModule() {

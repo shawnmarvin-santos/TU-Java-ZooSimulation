@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class TicketModule {
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private String ticketCode;
 
@@ -71,12 +71,17 @@ public class TicketModule {
             ConsoleUtil.println("");
             ConsoleUtil.println("Welcome to the zoo!");
             ConsoleUtil.println("");
-            VisitorModule visitorModule = new VisitorModule(visitor);
-            visitorModule.visitorMainMenu();
+
+            accesssVisitorModule(visitor);
         }
     }
 
     private Visitor createVisitor(String name){
         return new Visitor(name);
+    }
+
+    private void accesssVisitorModule(Visitor visitor){
+        VisitorModule visitorModule = new VisitorModule(visitor);
+        visitorModule.visitorMainMenu();
     }
 }
