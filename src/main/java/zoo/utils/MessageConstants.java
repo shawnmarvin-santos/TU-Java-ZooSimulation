@@ -13,5 +13,7 @@ public class MessageConstants {
     public static final String INVALID_OPTION_ERROR_MESSAGE = "Invalid option.";
 
     //PROMPTS
+    public static final String LOGIN_USERNAME_PROMPT = "Input username: ";
+    public static final String LOGIN_PASSWORD_PROMPT = "Input password: ";
 
 }

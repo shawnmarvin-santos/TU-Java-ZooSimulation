@@ -1,5 +1,7 @@
 package zoo.utils;
 
+import zoo.repository.AdminRepository;
+
 import java.util.Scanner;
 
 public class InputValidationUtil {
@@ -26,15 +28,14 @@ public class InputValidationUtil {
 
     /**
      * Validate if input is a Double
-     * @param scanner scanner for repeatable input
      * @param prompt message to be printed on the console
      * @return the input
      */
-    public static double promptForDouble(Scanner scanner, String prompt){
+    public static double promptForDouble(String prompt){
         while (true) {
             try{
                 ConsoleUtil.print(prompt);
-                return Double.parseDouble(scanner.nextLine().trim());
+                return Double.parseDouble(AdminRepository.getInstance().getScanner().nextLine().trim());
             } catch (NumberFormatException e){
                 ConsoleUtil.printError(MessageConstants.INVALID_NUMBER_ERROR_MESSAGE);
             }
@@ -43,16 +44,15 @@ public class InputValidationUtil {
 
     /**
      * Validate if the user inputted a valid option
-     * @param scanner scanner for repeatable input
      * @param prompt message to be printed on the console
      * @param maxOption the max option before returning an error
      * @return the input
      */
-    public static int promptForOption(Scanner scanner, String prompt, int maxOption){
+    public static int promptForOption(String prompt, int maxOption){
         while (true) {
             try{
                 ConsoleUtil.print(prompt);
-                int option = Integer.parseInt(scanner.nextLine().trim());
+                int option = Integer.parseInt(AdminRepository.getInstance().getScanner().nextLine().trim());
                 if(option > 0 && option <= maxOption){
                     return option;
                 } else {
@@ -68,14 +68,13 @@ public class InputValidationUtil {
 
     /**
      * Validate if the user inputted a valid string option and not empty
-     * @param scanner scanner for repeatable input
      * @param prompt message to be printed on the console
      * @return the input
      */
-    public static String promptNonEmpty(Scanner scanner, String prompt){
+    public static String promptForString(String prompt){
         while (true){
             ConsoleUtil.print(prompt);
-            String input = scanner.nextLine();
+            String input = AdminRepository.getInstance().getScanner().nextLine();
             if (!input.isEmpty()){
                 return input;
             }
