@@ -65,10 +65,14 @@ public class TicketModule {
 
     private void visitorEntry(Visitor visitor){
         ConsoleUtil.println("=== Visitor Entry ===");
-        String ticket = InputValidationUtil.promptForString("Enter your ticket code: ");
-
-        if (ticket.equals(this.ticketCode)){
-            accesssVisitorModule(visitor);
+        while (true) {
+            String ticket = InputValidationUtil.promptForString("Enter your ticket code: ");
+            if (ticket.equals(this.ticketCode)) {
+                accesssVisitorModule(visitor);
+                return;
+            } else {
+                ConsoleUtil.println("Please try again");
+            }
         }
     }
 
