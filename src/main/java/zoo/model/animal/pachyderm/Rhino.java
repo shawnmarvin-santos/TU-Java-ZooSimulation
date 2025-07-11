@@ -17,6 +17,6 @@ public class Rhino extends Pachyderm {
     }
 
     public  void makeSound() {
-        console.println(this.name + "growls");
+        console.println(this.name + " the " + this.getClass().getCanonicalName() + " bellows");
     }
 }

@@ -15,6 +15,6 @@ public class Owl extends Bird {
     }
 
     public  void makeSound() {
-        console.println(this.name + "chirps");
+        console.println(this.name + " the " + this.getClass().getCanonicalName() + " hoots");
     }
 }
