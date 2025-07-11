@@ -36,8 +36,7 @@ public class AdminRepository {
     }
 
     public void openZoo(){
-        if(!isStaffSetup){
-            ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
+        if(!checkIfStaffSetup()){
             return;
         }
         if(!isZooOpen){
@@ -53,6 +52,15 @@ public class AdminRepository {
         } else {
             ConsoleUtil.printWaning(MessageConstants.ZOO_IS_NOT_OPEN_WARNING);
         }
+    }
+
+    public boolean checkIfStaffSetup(){
+        boolean returnValue = false;
+        if(isStaffSetup) {
+            returnValue = true;
+        }
+        ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
+        return returnValue;
     }
 
     public void setupStaff(ZooStaff staff){

@@ -6,6 +6,7 @@ import zoo.model.building.enclosure.FelineEnclosure;
 import zoo.model.building.enclosure.PachydermEnclosure;
 import zoo.model.people.*;
 import zoo.repository.AdminRepository;
+import zoo.repository.AnimalRepository;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
 import zoo.utils.MessageConstants;
@@ -17,7 +18,7 @@ public class AdminModule {
             ConsoleUtil.printError(MessageConstants.LOGIN_UNSUCCESSFUL_LIMIT_REACHED);
             return;
         }
-
+        AnimalRepository.getInstance().instantiateAnimals();
         openMainMenu();
     }
 
@@ -60,14 +61,14 @@ public class AdminModule {
                     adminRepository.closeZoo();
                     break;
                 case 5:
-                    System.out.println("Exiting admin module.");
+                    ConsoleUtil.println(MessageConstants.ZOO_EXIT_MESSAGE);
                     return;
             }
         }
     }
 
     private void setupZooStaff() {
-        System.out.println("\n--- Zoo Staff Setup ---");
+        ConsoleUtil.println(MessageConstants.ZOO_SETUP_BANNER);
 
         String manager = InputValidationUtil.promptForString(MessageConstants.ENTER_MANAGER_PROMPT);
         String vet = InputValidationUtil.promptForString(MessageConstants.ENTER_VETERINARIAN_PROMPT);
@@ -94,6 +95,19 @@ public class AdminModule {
     }
 
     private void accessHandlerModule() {
+        if(AdminRepository.getInstance().checkIfStaffSetup()){
+            return;
+        }
 
+        String handlerName = InputValidationUtil.promptForString(MessageConstants.ENTER_HANDLER_PROMPT);
+
+        ZooStaff zooStaff = AdminRepository.getInstance().getZooStaff();
+        if(handlerName.equalsIgnoreCase(zooStaff.getBirdHandler().getName())
+           || handlerName.equalsIgnoreCase(zooStaff.getFelineHandler().getName())
+           || handlerName.equalsIgnoreCase(zooStaff.getPachydermHandler().getName())){
+            //HandlerModule handlerModule = new HandlerModule();
+        } else {
+            ConsoleUtil.println(MessageConstants.INVALID_HANDLER_NAME_ERROR);
+        }
     }
 }

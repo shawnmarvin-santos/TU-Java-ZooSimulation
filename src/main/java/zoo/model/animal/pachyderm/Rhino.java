@@ -7,8 +7,13 @@ import zoo.utils.ConsoleUtil;
 public class Rhino extends Pachyderm {
     private ConsoleUtil console = new ConsoleUtil();
 
+    public Rhino(){super();}
+
     public Rhino(boolean healthy, String name, Enclosure location){
         super(healthy, name, location);
+    }
+
+    public Rhino(String s) {
     }
 
     public  void makeSound() {

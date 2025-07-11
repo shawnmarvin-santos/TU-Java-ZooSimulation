@@ -9,6 +9,7 @@ public abstract class Animal {
     protected boolean healthy;
     protected String name;
 
+    public Animal(){};
     public Animal (boolean healthy, String name){
         this.healthy = healthy;
         this.name = name;

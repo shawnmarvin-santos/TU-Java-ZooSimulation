@@ -1,0 +1,37 @@
+[
+  { "Name": "Kehaar", "Type": "Falcon" },
+  { "Name": "Revali", "Type": "Falcon" },
+  { "Name": "Rico", "Type": "Falcon" },
+
+  { "Name": "Archimedes", "Type": "Owl" },
+  { "Name": "Soren", "Type": "Owl" },
+  { "Name": "Kaepora", "Type": "Owl" },
+
+  { "Name": "Iago", "Type": "Parrot" },
+  { "Name": "Paulie", "Type": "Parrot" },
+  { "Name": "Captain Flint", "Type": "Parrot" },
+
+  { "Name": "Neytiri", "Type": "Cheetah" },
+  { "Name": "Cheetara", "Type": "Cheetah" },
+  { "Name": "Spot", "Type": "Cheetah" },
+
+  { "Name": "Aslan", "Type": "Lion" },
+  { "Name": "Mufasa", "Type": "Lion" },
+  { "Name": "Scar", "Type": "Lion" },
+
+  { "Name": "Shere Khan", "Type": "Tiger" },
+  { "Name": "Rajah", "Type": "Tiger" },
+  { "Name": "Ty Lee", "Type": "Tiger" },
+
+  { "Name": "Manny", "Type": "Elephant" },
+  { "Name": "Dumbo", "Type": "Elephant" },
+  { "Name": "Stampy", "Type": "Elephant" },
+
+  { "Name": "Gloria", "Type": "Hippo" },
+  { "Name": "Bubbles", "Type": "Hippo" },
+  { "Name": "Moto Moto", "Type": "Hippo" },
+
+  { "Name": "Rhinox", "Type": "Rhino" },
+  { "Name": "Rocksteady", "Type": "Rhino" },
+  { "Name": "Zulra", "Type": "Rhino" }
+]

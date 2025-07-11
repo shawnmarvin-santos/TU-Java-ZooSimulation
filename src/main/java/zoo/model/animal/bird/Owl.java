@@ -11,6 +11,9 @@ public class Owl extends Bird {
         super(healthy, name, location);
     }
 
+    public Owl(String s) {
+    }
+
     public  void makeSound() {
         console.println(this.name + "chirps");
     }

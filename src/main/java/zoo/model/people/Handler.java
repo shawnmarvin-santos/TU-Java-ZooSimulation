@@ -7,4 +7,8 @@ public class Handler extends People{
         this.name = name;
         this.location = location;
     }
+
+    public String getName(){
+        return name;
+    }
 }

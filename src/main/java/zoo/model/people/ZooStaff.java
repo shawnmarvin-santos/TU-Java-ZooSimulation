@@ -7,7 +7,7 @@ public class ZooStaff {
     private Manager managerOnDuty;
     private Handler pachydermHandler;
     private Handler birdHandler;
-    private Handler felinemHandler;
+    private Handler felineHandler;
 
     public ZooStaff() { }
 
@@ -17,7 +17,7 @@ public class ZooStaff {
                     Manager managerOnDuty,
                     Handler pachydermHandler,
                     Handler birdHandler,
-                    Handler felinemHandler) {
+                    Handler felineHandler) {
 
         this.vetOnDuty = vetOnDuty;
         this.shopVendorOnDuty = shopVendorOnDuty;
@@ -25,7 +25,31 @@ public class ZooStaff {
         this.managerOnDuty = managerOnDuty;
         this.pachydermHandler = pachydermHandler;
         this.birdHandler = birdHandler;
-        this.felinemHandler = felinemHandler;
+        this.felineHandler = felineHandler;
+    }
+
+    public Vendor getShopVendorOnDuty() {
+        return shopVendorOnDuty;
+    }
+
+    public Vendor getTicketVendorOnDuty() {
+        return ticketVendorOnDuty;
+    }
+
+    public Manager getManagerOnDuty() {
+        return managerOnDuty;
+    }
+
+    public Handler getPachydermHandler() {
+        return pachydermHandler;
+    }
+
+    public Handler getBirdHandler() {
+        return birdHandler;
+    }
+
+    public Handler getFelineHandler() {
+        return felineHandler;
     }
 
     public Veterinarian getVeterinarianOnDuty(){

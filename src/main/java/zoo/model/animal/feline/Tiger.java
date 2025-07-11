@@ -7,8 +7,13 @@ import zoo.utils.ConsoleUtil;
 public class Tiger extends Feline {
     private ConsoleUtil console = new ConsoleUtil();
 
+    public Tiger(){super();}
+
     public Tiger(boolean healthy, String name, Enclosure location){
         super(healthy, name, location);
+    }
+
+    public Tiger(String s) {
     }
 
     public  void makeSound() {

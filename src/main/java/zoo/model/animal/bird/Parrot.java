@@ -11,6 +11,9 @@ public class Parrot extends Bird {
         super(healthy, name, location);
     }
 
+    public Parrot(String s) {
+    }
+
     public  void makeSound() {
         console.println(this.name + "chirps");
     }

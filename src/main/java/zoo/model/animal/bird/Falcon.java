@@ -11,6 +11,9 @@ public class Falcon extends Bird {
         super(healthy, name, location);
     }
 
+    public Falcon(String s) {
+    }
+
     public  void makeSound() {
         console.println(this.name + "chirps");
     }
