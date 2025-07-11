@@ -65,13 +65,10 @@ public class TicketModule {
     }
 
     private void visitorEntry(Visitor visitor){
-        ConsoleUtil.println("===Visitor Entry===");
+        ConsoleUtil.println("=== Visitor Entry ===");
         String ticket = InputValidationUtil.promptForString("Enter your ticket code: ");
-        if (ticket.equals(this.ticketCode)){
-            ConsoleUtil.println("");
-            ConsoleUtil.println("Welcome to the zoo!");
-            ConsoleUtil.println("");
 
+        if (ticket.equals(this.ticketCode)){
             accesssVisitorModule(visitor);
         }
     }
@@ -81,6 +78,7 @@ public class TicketModule {
     }
 
     private void accesssVisitorModule(Visitor visitor){
+        ConsoleUtil.println(MessageConstants.VISITOR_WELCOME_TO_ZOO_BANNER);
         VisitorModule visitorModule = new VisitorModule(visitor);
         visitorModule.visitorMainMenu();
     }

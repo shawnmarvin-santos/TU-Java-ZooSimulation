@@ -29,28 +29,33 @@ public class MessageConstants {
             4. Leave Zoo
             """;
     public static final String VISITOR_VISIT_ENCLOSURE_BANNER = """
-    ===Zoo Enclosure===
-    Choose Enclosure:
-    1. Pachyderm
-    2. Feline
-    3. Bird
-    """;
+            ===Zoo Enclosure===
+            Choose Enclosure:
+            1. Pachyderm
+            2. Feline
+            3. Bird
+            """;
     public static final String VISITOR_VISIT_SHOP_BANNER = """
-    == Zoo Shop ===
-    Available Products:
-    1. Soft Drink - 30
-    2. Popcorn - 50
-    3. Plush toy - 120
-    4. Keychain - 45
-    """;
+            == Zoo Shop ===
+            Available Products:
+            1. Soft Drink - 30
+            2. Popcorn - 50
+            3. Plush toy - 120
+            4. Keychain - 45
+            """;
     public static final String VISITOR_VISIT_HOSPITAL_BANNER = """
-    === Zoo Hospital ===
-    1. View Sick Animals
-    2. View Healed Animals
-    3. Attend Science Lecture
-    4. Watch Veterinarian Heal Animals
-    5. Exit
-    """;
+            === Zoo Hospital ===
+            1. View Sick Animals
+            2. View Healed Animals
+            3. Attend Science Lecture
+            4. Watch Veterinarian Heal Animals
+            5. Exit
+            """;
+    public static final String VISITOR_WELCOME_TO_ZOO_BANNER = """
+            
+            === Welcome to the zoo! ===
+            
+            """;
 
     //SUCCESS MESSAGE
     public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!\n";

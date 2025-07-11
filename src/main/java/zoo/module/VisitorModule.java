@@ -17,7 +17,7 @@ public class VisitorModule {
 
         boolean inZoo = true;
         while (inZoo) {
-            int option = InputValidationUtil.promptForOption("Choose an option: ", 4);
+            int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
             ConsoleUtil.println("");
             switch (option) {
                 case 1:
@@ -41,7 +41,7 @@ public class VisitorModule {
 
     public void visitEnclosure(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_ENCLOSURE_BANNER);
-        int option = InputValidationUtil.promptForOption("Choose an option: ", 4);
+        int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
         ConsoleUtil.println("");
         //get animals
 
@@ -75,7 +75,7 @@ public class VisitorModule {
     public void visitShop(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_SHOP_BANNER);
 
-        int option = InputValidationUtil.promptForOption("What would you like to buy: ", 4);
+        int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
 
         ConsoleUtil.println("Selected:");
         switch (option){
@@ -108,7 +108,7 @@ public class VisitorModule {
     public void visitHospital(){
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
 
-        int option = InputValidationUtil.promptForOption("Choose an option: ", 5);
+        int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 5);
 
         ConsoleUtil.println("Selected:");
         switch (option){
