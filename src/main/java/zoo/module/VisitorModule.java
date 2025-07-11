@@ -71,7 +71,7 @@ public class VisitorModule {
         }
 
         ConsoleUtil.println("");
-        ConsoleUtil.println("What would you like to do next?");
+        ConsoleUtil.println(MessageConstants.WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE);
     }
 
     //To Improve, but works
@@ -81,7 +81,7 @@ public class VisitorModule {
 
         vendor.Sell();
 
-        ConsoleUtil.println("What would you like to do next?");
+        ConsoleUtil.println(MessageConstants.WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE);
     }
 
     private void visitHospital(){
@@ -106,14 +106,15 @@ public class VisitorModule {
                 veterinarian.Heal();
                 break;
             case 5:
-                ConsoleUtil.println("Thank you for visiting the hospital!");
+                ConsoleUtil.println(MessageConstants.THANK_YOU_FOR_VISITING_MESSAGE);
                 break;
             default:
                 break;
         }
+        ConsoleUtil.println(MessageConstants.WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE);
     }
 
     private void leaveZoo(){
-        ConsoleUtil.println("Thank you for visiting!");
+        ConsoleUtil.println(MessageConstants.THANK_YOU_FOR_VISITING_MESSAGE);
     }
 }

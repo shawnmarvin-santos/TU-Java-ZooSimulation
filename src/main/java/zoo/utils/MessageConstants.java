@@ -89,4 +89,8 @@ public class MessageConstants {
     public static final String ENTER_VETERINARIAN_PROMPT = "Enter Veterinarian's name: ";
     public static final String ENTER_MANAGER_PROMPT = "Enter Manager's name: ";
 
+    //GENERIC MESSAGES
+    public static final String THANK_YOU_FOR_VISITING_MESSAGE = "Thank you for visiting!";
+    public static final String WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE = "What would you like to do next?";
+
 }
