@@ -101,12 +101,12 @@ public class AdminModule {
 
         String handlerName = InputValidationUtil.promptForString(MessageConstants.ENTER_HANDLER_PROMPT);
 
-        ZooStaff zooStaff = AdminRepository.getInstance().getZooStaff();
-        if(handlerName.equalsIgnoreCase(zooStaff.getBirdHandler().getName())){
-            HandlerModule handlerModule = new HandlerModule(zooStaff.getBirdHandler());
-
-        } else {
-            ConsoleUtil.println(MessageConstants.INVALID_HANDLER_NAME_ERROR);
+        try{
+            Handler handler = AdminRepository.getInstance().getHandler(handlerName);
+            HandlerModule handlerModule = new HandlerModule(handler);
+            handlerModule.start();
+        } catch (IllegalArgumentException e){
+            ConsoleUtil.printError(e.getMessage());
         }
     }
 }

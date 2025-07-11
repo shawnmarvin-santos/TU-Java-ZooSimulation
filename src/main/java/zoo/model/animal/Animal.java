@@ -1,5 +1,6 @@
 package zoo.model.animal;
 
+import zoo.model.building.Building;
 import zoo.utils.ConsoleUtil;
 
 public abstract class Animal {
@@ -23,9 +24,14 @@ public abstract class Animal {
         console.println(name + "sleeps.");
     }
 
+    public void exercise() {console.println(name + "exercises");}
+
     public abstract void makeSound();
 
     public abstract void roam();
 
     public String getName(){ return name; }
+
+    public abstract void goToLocation(Building building);
+    public abstract Building getLocation();
 }

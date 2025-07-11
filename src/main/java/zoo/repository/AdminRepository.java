@@ -4,12 +4,14 @@ import zoo.model.people.*;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.MessageConstants;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class AdminRepository {
     private static AdminRepository instance;
     private static final Scanner scanner = new Scanner(System.in);
     private ZooStaff zooStaff;
+    private Map<String, Handler> handlerMap;
     private boolean isZooOpen;
     private boolean isStaffSetup;
 
@@ -63,11 +65,26 @@ public class AdminRepository {
 
     public void setupStaff(ZooStaff staff){
         zooStaff = staff;
+
+        handlerMap = Map.of(
+                zooStaff.getBirdHandler().getName().toLowerCase(), zooStaff.getBirdHandler(),
+                zooStaff.getFelineHandler().getName().toLowerCase(), zooStaff.getFelineHandler(),
+                zooStaff.getPachydermHandler().getName().toLowerCase(), zooStaff.getPachydermHandler()
+        );
+
         isStaffSetup = true;
         ConsoleUtil.println(MessageConstants.STAFF_SETUP_SUCCESSFUL_MESSAGE);
     }
 
     public ZooStaff getZooStaff(){
         return zooStaff;
+    }
+
+    public Handler getHandler(String handlerName){
+        Handler handler = handlerMap.get(handlerName.toLowerCase());
+        if(null == handler){
+            throw new IllegalArgumentException(MessageConstants.INVALID_HANDLER_NAME_ERROR);
+        }
+        return handler;
     }
 }

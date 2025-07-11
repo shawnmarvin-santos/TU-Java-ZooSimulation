@@ -40,18 +40,22 @@ public class InputValidationUtil {
         }
     }
 
+    public static int promptForOption(String prompt, int maxOption){
+        return promptForOption(prompt, 1, maxOption);
+    }
+
     /**
      * Validate if the user inputted a valid option
      * @param prompt message to be printed on the console
      * @param maxOption the max option before returning an error
      * @return the input
      */
-    public static int promptForOption(String prompt, int maxOption){
+    public static int promptForOption(String prompt, int minOption, int maxOption){
         while (true) {
             try{
                 ConsoleUtil.print(prompt);
                 int option = Integer.parseInt(AdminRepository.getInstance().getScanner().nextLine().trim());
-                if(option > 0 && option <= maxOption){
+                if(option >= minOption && option <= maxOption){
                     return option;
                 } else {
                     ConsoleUtil.printError(MessageConstants.INVALID_OPTION_ERROR_MESSAGE);
@@ -59,7 +63,6 @@ public class InputValidationUtil {
 
             } catch (NumberFormatException e) {
                 ConsoleUtil.printError(MessageConstants.INVALID_NUMBER_ERROR_MESSAGE);
-                ConsoleUtil.print(prompt);
             }
         }
     }

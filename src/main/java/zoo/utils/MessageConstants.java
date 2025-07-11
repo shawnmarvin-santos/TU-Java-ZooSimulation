@@ -58,11 +58,23 @@ public class MessageConstants {
             === Welcome to the zoo! ===
             
             """;
-
+    public static final String HANDLER_MODULE_BANNER = "--- Welcome Handler %s! ---";
+    public static final String ANIMAL_DUTY_MESSAGE = """
+            --- Animal Duty Menu --
+            Animals assigned to you:
+            """;
+    public static final String ANIMAL_ACTION_BANNER = """
+            Choose Action:
+            1. Feed %1$s
+            2. Exercise %1$s
+            3. Examine %1$s to the vet
+            """;
+    public static final String SENDING_TO_HOSPITAL_MESSAGE = "Sending to Hospital...";
 
     //SUCCESS MESSAGE
     public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!\n";
     public static final String STAFF_SETUP_SUCCESSFUL_MESSAGE = "Staff has been successfully setup!\n";
+    public static final String ANIMAL_ADMITTED_SUCCESSFUL_MESSAGE = "%s admitted at %s\n\n";
 
     //WARNING MESSAGE
     public static final String WARNING_MESSAGE_FORMAT = "WARNING: %s \n";
@@ -71,7 +83,7 @@ public class MessageConstants {
     public static final String ZOO_STAFF_IS_NOT_YET_SET_UP = "Staff has not been setup yet.";
 
     //ERROR MESSAGES
-    public static final String ERROR_MESSAGE_FORMAT = "Error: %s.";
+    public static final String ERROR_MESSAGE_FORMAT = "Error: %s.\n";
     public static final String AMOUNT_NEGATIVE_ERROR_MESSAGE = "Input must be non-negative.";
     public static final String INPUT_EMPTY_ERROR_MESSAGE = "Input cannot be empty.";
     public static final String INVALID_NUMBER_ERROR_MESSAGE = "Invalid number, please try again.";
@@ -94,6 +106,7 @@ public class MessageConstants {
     public static final String ENTER_VETERINARIAN_PROMPT = "Enter Veterinarian's name: ";
     public static final String ENTER_MANAGER_PROMPT = "Enter Manager's name: ";
     public static final String ENTER_HANDLER_PROMPT = "Enter Handle's name: ";
+    public static final String ENTER_ANIMAL_PROMPT = "Choose animal number to interact with (0 to exit): ";
 
     //GENERIC MESSAGES
     public static final String THANK_YOU_FOR_VISITING_MESSAGE = "Thank you for visiting!";
