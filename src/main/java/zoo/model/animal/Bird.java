@@ -1,4 +1,14 @@
 package zoo.model.animal;
 
-public class Bird extends Animal{
+import zoo.model.building.enclosure.Enclosure;
+import zoo.utils.ConsoleUtil;
+
+public abstract class Bird extends Animal{
+    private ConsoleUtil console = new ConsoleUtil();
+
+    protected Enclosure location;
+
+    public void roam() {
+        console.println(this.name + " roams");
+    }
 }
