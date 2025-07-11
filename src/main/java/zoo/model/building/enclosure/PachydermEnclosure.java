@@ -1,4 +1,4 @@
 package zoo.model.building.enclosure;
 
-public class PachydermEnclosure {
+public class PachydermEnclosure extends Enclosure{
 }

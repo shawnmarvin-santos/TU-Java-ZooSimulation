@@ -1,4 +1,4 @@
 package zoo.model.animal;
 
-public class Animal {
+public abstract class Animal {
 }

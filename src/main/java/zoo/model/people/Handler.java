@@ -1,4 +1,4 @@
 package zoo.model.people;
 
-public class Handler {
+public class Handler extends People{
 }

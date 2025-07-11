@@ -1,4 +1,4 @@
 package zoo.model.animal;
 
-public class Pachyderm {
+public class Pachyderm extends Animal{
 }

@@ -1,4 +1,4 @@
 package zoo.model.people;
 
-public class Veterinarian {
+public class Veterinarian extends People{
 }

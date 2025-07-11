@@ -1,4 +1,4 @@
 package zoo.model.building;
 
-public class Hospital {
+public class Hospital extends Building{
 }

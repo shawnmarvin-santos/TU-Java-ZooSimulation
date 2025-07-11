@@ -1,4 +1,6 @@
 package zoo.model.building.enclosure;
 
-public class Enclosure {
+import zoo.model.building.Building;
+
+public abstract class Enclosure extends Building {
 }
