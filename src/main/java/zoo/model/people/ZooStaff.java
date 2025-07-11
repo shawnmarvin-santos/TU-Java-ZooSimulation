@@ -56,7 +56,4 @@ public class ZooStaff {
         return vetOnDuty;
     }
 
-    public Vendor getShopVendorOnDuty(){
-        return shopVendorOnDuty;
-    }
 }

@@ -2,8 +2,6 @@ package zoo.utils;
 
 import zoo.repository.AdminRepository;
 
-import java.util.Scanner;
-
 public class InputValidationUtil {
 
     /**

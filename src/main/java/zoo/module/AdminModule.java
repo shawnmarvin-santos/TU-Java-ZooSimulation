@@ -61,7 +61,7 @@ public class AdminModule {
                     adminRepository.closeZoo();
                     break;
                 case 5:
-                    ConsoleUtil.println(MessageConstants.ZOO_EXIT_MESSAGE);
+                    ConsoleUtil.println(MessageConstants.THANK_YOU_FOR_VISITING_MESSAGE);
                     return;
             }
         }

@@ -1,6 +1,5 @@
 package zoo.module;
 
-import zoo.model.building.Building;
 import zoo.model.people.Visitor;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;

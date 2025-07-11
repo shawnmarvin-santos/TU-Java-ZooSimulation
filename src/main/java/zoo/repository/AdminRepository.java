@@ -1,11 +1,9 @@
 package zoo.repository;
 
-import zoo.model.animal.Animal;
 import zoo.model.people.*;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.MessageConstants;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminRepository {

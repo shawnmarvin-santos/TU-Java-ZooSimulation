@@ -42,7 +42,6 @@ public class AnimalRepository {
         } catch (IOException e) {
             throw new IllegalArgumentException(MessageConstants.FILE_NOT_FOUND);
         }
-
-
     }
+
 }
