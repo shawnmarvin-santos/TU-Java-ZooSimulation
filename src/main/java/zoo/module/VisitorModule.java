@@ -1,14 +1,22 @@
 package zoo.module;
 
+import zoo.model.animal.Bird;
+import zoo.model.animal.Feline;
+import zoo.model.animal.Pachyderm;
+import zoo.model.people.Handler;
 import zoo.model.people.Vendor;
 import zoo.model.people.Veterinarian;
 import zoo.model.people.Visitor;
 import zoo.repository.AdminRepository;
+import zoo.repository.AnimalRepository;
 import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
 import zoo.utils.MessageConstants;
 
 public class VisitorModule {
+    private final AdminRepository adminRepository = AdminRepository.getInstance();
+    private final AnimalRepository animalRepository = AnimalRepository.getInstance();
+
     private Visitor visitor;
 
     public VisitorModule(Visitor visitor){
@@ -46,28 +54,36 @@ public class VisitorModule {
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_ENCLOSURE_BANNER);
         int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 4);
         ConsoleUtil.println("");
-        //get animals
 
         int feed = InputValidationUtil.promptForOption("Would you like to feed(Yes(1)/No(2): ",2);
         switch (option){
             case 1:
-                //visitor.goTo();
+                Handler pachydermHandler = adminRepository.getZooStaff().getPachydermHandler();
+                Pachyderm pachyderm = (Pachyderm) animalRepository.getAssignedAnimals(pachydermHandler).getFirst();
+                visitor.goTo(pachydermHandler.getLocation());
                 if (feed == 1){
-                    //pachyderm makeSound
+                    //pachyderm eats
                 }
-                //pachyderm eats;
+                pachyderm.roam();
+                pachyderm.makeSound();
             case 2:
-                //visitor.goTo();
+                Handler felineHandler = adminRepository.getZooStaff().getFelineHandler();
+                Feline feline = (Feline) animalRepository.getAssignedAnimals(felineHandler).getFirst();
+                visitor.goTo(felineHandler.getLocation());
                 if (feed == 1){
-                    //feline makeSound
+                    //feline eats
                 }
-                //feline eats;
+                feline.roam();
+                feline.makeSound();
             case 3:
-                //visitor.goTo();
+                Handler birdHandler = adminRepository.getZooStaff().getBirdHandler();
+                Bird bird = (Bird) animalRepository.getAssignedAnimals(birdHandler).getFirst();
+                visitor.goTo(birdHandler.getLocation());
                 if (feed == 1){
-                    //bird makeSound
+                    //bird eats
                 }
-                //bird eats;
+                bird.roam();
+                bird.makeSound();
         }
 
         ConsoleUtil.println("");
@@ -76,7 +92,6 @@ public class VisitorModule {
 
     //To Improve, but works
     private void visitShop(){
-        AdminRepository adminRepository = AdminRepository.getInstance();
         Vendor vendor = adminRepository.getZooStaff().getShopVendorOnDuty();
 
         vendor.Sell();
@@ -85,7 +100,6 @@ public class VisitorModule {
     }
 
     private void visitHospital(){
-        AdminRepository adminRepository = AdminRepository.getInstance();
         Veterinarian veterinarian = adminRepository.getZooStaff().getVeterinarianOnDuty();
 
         ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
