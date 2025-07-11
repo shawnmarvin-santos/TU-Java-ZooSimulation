@@ -1,21 +1,20 @@
 package zoo.repository;
 
 import zoo.model.animal.Animal;
-import zoo.model.building.Building;
 import zoo.model.people.*;
+import zoo.utils.ConsoleUtil;
+import zoo.utils.MessageConstants;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminRepository {
     private static AdminRepository instance;
-
-    private static Scanner scanner = new Scanner(System.in);
-
-    private final String adminUsername = "admin";
-    private final String adminPassword = "adminadmin";
-
+    private static final Scanner scanner = new Scanner(System.in);
+    private ZooStaff zooStaff;
     private boolean isZooOpen;
+    final String ADMIN_USERNAME = "admin";
+    final String ADMIN_PASSWORD = "adminadmin";
 
     private AdminRepository(){}
 
@@ -27,14 +26,26 @@ public class AdminRepository {
     }
 
     public boolean isAuthorized(String inputUsername, String inputPassword){
-        boolean inputValid = false;
-        if(inputUsername.equals(adminUsername) && inputPassword.equals(adminPassword)){
-            inputValid = true;
-        }
-        return inputValid;
+        return inputUsername.equals(ADMIN_USERNAME) && inputPassword.equals(ADMIN_PASSWORD);
     }
 
     public Scanner getScanner(){
         return scanner;
+    }
+
+    public void openZoo(){
+        if(!isZooOpen){
+            isZooOpen = true;
+        } else {
+            ConsoleUtil.println(MessageConstants.ZOO_IS_ALREADY_OPEN_WARNING);
+        }
+    }
+
+    public void closeZoo(){
+        if(isZooOpen){
+            isZooOpen = false;
+        } else {
+            ConsoleUtil.println(MessageConstants.ZOO_IS_NOT_OPEN_WARNING);
+        }
     }
 }

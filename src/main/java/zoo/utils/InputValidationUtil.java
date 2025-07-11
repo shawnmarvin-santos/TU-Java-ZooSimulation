@@ -56,7 +56,7 @@ public class InputValidationUtil {
                 if(option > 0 && option <= maxOption){
                     return option;
                 } else {
-                    ConsoleUtil.printError(MessageConstants.INVALID_NUMBER_ERROR_MESSAGE);
+                    ConsoleUtil.printError(MessageConstants.INVALID_OPTION_ERROR_MESSAGE);
                 }
 
             } catch (NumberFormatException e) {

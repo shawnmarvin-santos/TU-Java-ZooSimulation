@@ -1,29 +1,79 @@
 package zoo.module;
 
+import zoo.model.people.Veterinarian;
+import zoo.model.people.ZooStaff;
 import zoo.repository.AdminRepository;
+import zoo.utils.ConsoleUtil;
 import zoo.utils.InputValidationUtil;
 import zoo.utils.MessageConstants;
 
 public class AdminModule {
+
     public void start() {
         if (!login()) {
-            System.out.println("Login failed. Exiting admin module.");
+            ConsoleUtil.printError(MessageConstants.LOGIN_UNSUCCESSFUL_LIMIT_REACHED);
             return;
         }
 
-        login();
+        openMainMenu();
     }
 
     private boolean login() {
-        System.out.println("\n=== Zoo Admin Console ===");
-        String username = InputValidationUtil.promptForString(MessageConstants.LOGIN_USERNAME_PROMPT);
-        String password = InputValidationUtil.promptForString(MessageConstants.LOGIN_PASSWORD_PROMPT);
+        ConsoleUtil.println(MessageConstants.WELCOME_BANNER_MESSAGE);
+        for (int i =0; i < 3; i++){
+            String username = InputValidationUtil.promptForString(MessageConstants.LOGIN_USERNAME_PROMPT);
+            String password = InputValidationUtil.promptForString(MessageConstants.LOGIN_PASSWORD_PROMPT);
 
-        if (AdminRepository.getInstance().isAuthorized(username, password)) {
-            System.out.println("\nLogin successful. Welcome!");
-            return true;
+            if (AdminRepository.getInstance().isAuthorized(username, password)) {
+                ConsoleUtil.println(MessageConstants.LOGIN_SUCCESSFUL_MESSAGE);
+                return true;
+            } else {
+                ConsoleUtil.println(MessageConstants.LOGIN_UNSUCCESSFUL_ERROR_MESSAGE);
+            }
         }
         return false;
+    }
+
+    private void openMainMenu() {
+        AdminRepository adminRepository = AdminRepository.getInstance();
+
+        while (true) {
+            ConsoleUtil.println(MessageConstants.ADMIN_MAIN_MENU_BANNER);
+
+            int choice = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 5);
+
+            switch (choice) {
+                case 1:
+                    setupZooStaff();
+                    break;
+                case 2:
+                    //accessHandlerModule();
+                    break;
+                case 3:
+                    adminRepository.openZoo();
+                    break;
+                case 4:
+                    adminRepository.closeZoo();
+                    break;
+                case 5:
+                    System.out.println("Exiting admin module.");
+                    return;
+            }
+        }
+    }
+
+    private void setupZooStaff() {
+        System.out.println("\n--- Zoo Staff Setup ---");
+
+        String manager = InputValidationUtil.promptForString(MessageConstants.ENTER_MANAGER_PROMPT);
+        String vet = InputValidationUtil.promptForString(MessageConstants.ENTER_VETERINARIAN_PROMPT);
+        String pachydermHandler = InputValidationUtil.promptForString(MessageConstants.ENTER_PACHYDERM_HANDLER_PROMPT);
+        String felineHandler = InputValidationUtil.promptForString(MessageConstants.ENTER_FELINE_HANDLER_PROMPT);
+        String birdHandler = InputValidationUtil.promptForString(MessageConstants.ENTER_BIRD_HANDLER_PROMPT);
+        String ticketVendor = InputValidationUtil.promptForString(MessageConstants.ENTER_TICKET_PROMPT);
+        String shopVendor = InputValidationUtil.promptForString(MessageConstants.ENTER_SHOP_PROMPT);
+
+        //ZooStaff staff = new ZooStaff(new Veterinarian())
     }
 
 }
