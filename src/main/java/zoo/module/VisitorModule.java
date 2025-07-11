@@ -62,7 +62,7 @@ public class VisitorModule {
                 Pachyderm pachyderm = (Pachyderm) animalRepository.getAssignedAnimals(pachydermHandler).getFirst();
                 visitor.goTo(pachydermHandler.getLocation());
                 if (feed == 1) {
-                    //pachyderm eats
+                    pachydermHandler.feed(pachyderm);
                 }
                 pachyderm.roam();
                 pachyderm.makeSound();
@@ -72,7 +72,7 @@ public class VisitorModule {
                 Feline feline = (Feline) animalRepository.getAssignedAnimals(felineHandler).getFirst();
                 visitor.goTo(felineHandler.getLocation());
                 if (feed == 1) {
-                    //feline eats
+                    felineHandler.feed(feline);
                 }
                 feline.roam();
                 feline.makeSound();
@@ -82,7 +82,7 @@ public class VisitorModule {
                 Bird bird = (Bird) animalRepository.getAssignedAnimals(birdHandler).getFirst();
                 visitor.goTo(birdHandler.getLocation());
                 if (feed == 1) {
-                    //bird eats
+                    birdHandler.feed(bird);
                 }
                 bird.roam();
                 bird.makeSound();

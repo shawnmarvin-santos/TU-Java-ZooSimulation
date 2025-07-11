@@ -17,11 +17,11 @@ public abstract class Animal {
     }
 
     public void eat() {
-        console.println(name + "eats.");
+        console.println(name + " eats.");
     }
 
     public void sleep() {
-        console.println(name + "sleeps.");
+        console.println(name + " sleeps.");
     }
 
     public void exercise() {console.println(name + "exercises");}
