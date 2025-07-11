@@ -2,11 +2,11 @@ package zoo.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import zoo.model.animal.Animal;
-import zoo.model.animal.AnimalAdmitted;
+import zoo.model.animal.*;
 import zoo.model.building.Building;
 import zoo.model.building.Hospital;
 import zoo.model.building.enclosure.BirdEnclosure;
+import zoo.model.building.enclosure.Enclosure;
 import zoo.model.building.enclosure.FelineEnclosure;
 import zoo.model.building.enclosure.PachydermEnclosure;
 import zoo.model.people.Handler;
@@ -16,6 +16,7 @@ import zoo.utils.MessageConstants;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +43,7 @@ public class AnimalRepository {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("Animals.json");
             List<Map<String, String>> animalJsonList = mapper.readValue(
                     inputStream,
-                    new TypeReference<List<Map<String, String>>>() {}
+                    new TypeReference<>() {}
             );
             for (Map<String, String> animal: animalJsonList){
                 String name = animal.get("Name");
@@ -80,22 +81,73 @@ public class AnimalRepository {
 
     public void admitAnimalToHospital(Animal animalToBeUpdated){
         ConsoleUtil.println(MessageConstants.SENDING_TO_HOSPITAL_MESSAGE);
+        animalToBeUpdated.setHealthy(false);
         saveAnimalLocation(animalToBeUpdated, new Hospital());
-        AnimalAdmitted animalAdmitted = new AnimalAdmitted(animalToBeUpdated, java.time.LocalDateTime.now());
+        AnimalAdmitted animalAdmitted = new AnimalAdmitted(animalToBeUpdated, LocalDateTime.now());
         hospitalAdmissionLogs.add(animalAdmitted);
         ConsoleUtil.printf(MessageConstants.ANIMAL_ADMITTED_SUCCESSFUL_MESSAGE,
                 animalAdmitted.getAnimal().getName(),
                 animalAdmitted.getDateAdmitted());
     }
 
+    public void returnAnimals(){
+        if(hospitalAdmissionLogs.isEmpty()){
+            ConsoleUtil.println(MessageConstants.SICK_ANIMALS_LIST_EMPTY);
+            return;
+        }
+        for(AnimalAdmitted animalAdmitted: hospitalAdmissionLogs){
+            ConsoleUtil.println(MessageConstants.SENDING_TO_HOSPITAL_MESSAGE);
+            Enclosure newLocation = getEnclosureByType(animalAdmitted);
+            animalAdmitted.getAnimal().setHealthy(true);
+            animalAdmitted.healAnimal();
+            saveAnimalLocation(animalAdmitted.getAnimal(), newLocation);
+
+            ConsoleUtil.printf(MessageConstants.ANIMAL_HEALED_SUCCESSFUL_MESSAGE,
+                    animalAdmitted.getAnimal().getName());
+        }
+    }
+
+    private Enclosure getEnclosureByType(AnimalAdmitted animalAdmitted) {
+        Enclosure enclosure = null;
+        if(animalAdmitted.getAnimal() instanceof Bird){
+            enclosure = new BirdEnclosure();
+        }
+        if(animalAdmitted.getAnimal() instanceof Feline){
+            enclosure = new FelineEnclosure();
+        }
+        if(animalAdmitted.getAnimal() instanceof Pachyderm){
+            enclosure = new PachydermEnclosure();
+        }
+        return enclosure;
+    }
+
     public void saveAnimalLocation(Animal animalToBeUpdated, Building newLocation){
         for (Animal animal: animals){
             if(animal.equals(animalToBeUpdated)){
                 animal.goToLocation(newLocation);
+                animal.setHealthy(animalToBeUpdated.checkIfHealthy());
             }
-
             break;
+        }
+
+        for (Animal animal: animals){
+            System.out.println(animal.getName() + " Enclosure: " + animal.getLocation() + " Healthy: " + animal.checkIfHealthy());
         }
     }
 
+    public List<AnimalAdmitted> getHealedAnimals(){
+        return filterAdmittedAnimalsByStatus("healed");
+    }
+
+    public List<AnimalAdmitted> getSickAnimals(){
+        return filterAdmittedAnimalsByStatus("sick");
+    }
+
+    private List<AnimalAdmitted> filterAdmittedAnimalsByStatus(String status){
+        return hospitalAdmissionLogs.stream().filter(animal -> switch (status.toLowerCase()) {
+            case "healed" -> animal.checkIfHealed();
+            case "sick" -> !animal.checkIfHealed();
+            default -> false;
+        }).toList();
+    }
 }

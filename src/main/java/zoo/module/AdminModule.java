@@ -95,7 +95,7 @@ public class AdminModule {
     }
 
     private void accessHandlerModule() {
-        if(!AdminRepository.getInstance().checkIfStaffSetup()){
+        if(AdminRepository.getInstance().checkIfStaffSetup()){
             return;
         }
 

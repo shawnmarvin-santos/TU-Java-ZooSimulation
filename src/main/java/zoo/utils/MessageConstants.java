@@ -70,11 +70,18 @@ public class MessageConstants {
             3. Examine %1$s to the vet
             """;
     public static final String SENDING_TO_HOSPITAL_MESSAGE = "Sending to Hospital...";
+    public static final String HEALED_ANIMALS_HEADER_MESSAGE = "Healed Animals with timestamp";
+    public static final String SICK_ANIMALS_HEADER_MESSAGE = "Sick Animals Currently in Hospital.";
+    public static final String HEALED_ANIMAL_LIST_FORMAT = "- %s (%s)\n";
+    public static final String SICK_ANIMAL_LIST_FORMAT = "- %s\n";
+    public static final String HEALED_ANIMALS_LIST_EMPTY = "No Healed Animals";
+    public static final String SICK_ANIMALS_LIST_EMPTY = "No Sick Animals";
 
     //SUCCESS MESSAGE
     public static final String LOGIN_SUCCESSFUL_MESSAGE = "Login successful. Welcome!\n";
     public static final String STAFF_SETUP_SUCCESSFUL_MESSAGE = "Staff has been successfully setup!\n";
     public static final String ANIMAL_ADMITTED_SUCCESSFUL_MESSAGE = "%s admitted at %s\n\n";
+    public static final String ANIMAL_HEALED_SUCCESSFUL_MESSAGE = "Healed: %1$s\n%1$s has been discharged and returned to enclosure.\n\n";
 
     //WARNING MESSAGE
     public static final String WARNING_MESSAGE_FORMAT = "WARNING: %s \n";
