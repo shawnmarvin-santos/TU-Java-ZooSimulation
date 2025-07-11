@@ -1,6 +1,4 @@
-package zoo.modules.visitor;
-
-import zoo.model.people.Visitor;
+package zoo.module.visitor;
 
 import java.util.Scanner;
 
