@@ -8,6 +8,11 @@ public abstract class Bird extends Animal{
 
     protected Enclosure location;
 
+    public Bird (boolean healthy, String name, Enclosure location) {
+        super(healthy, name);
+        this.location = location;
+    }
+
     public void roam() {
         console.println(this.name + " roams");
     }

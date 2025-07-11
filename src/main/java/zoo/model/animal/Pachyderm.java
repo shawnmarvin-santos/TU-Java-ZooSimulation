@@ -8,6 +8,11 @@ public abstract class Pachyderm extends Animal{
 
     protected Enclosure location;
 
+    public Pachyderm (boolean healthy, String name, Enclosure location) {
+        super(healthy, name);
+        this.location = location;
+    }
+
     public void roam() {
         console.println(this.name + " roams");
     }

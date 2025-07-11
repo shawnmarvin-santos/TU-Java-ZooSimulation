@@ -8,6 +8,11 @@ public abstract class Feline extends Animal{
 
     protected Enclosure location;
 
+    public Feline (boolean healthy, String name, Enclosure location) {
+        super(healthy, name);
+        this.location = location;
+    }
+
     public void roam() {
         console.println(this.name + " roams");
     }
