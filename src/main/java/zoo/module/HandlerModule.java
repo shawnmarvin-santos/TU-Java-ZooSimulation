@@ -11,8 +11,7 @@ import zoo.utils.MessageConstants;
 import java.util.List;
 
 public class HandlerModule {
-    private Handler handler;
-    private List<Animal> assignedAnimals;
+    private final Handler handler;
 
     public HandlerModule(Handler handler) {
         this.handler = handler;
@@ -24,7 +23,8 @@ public class HandlerModule {
         while (true) {
             ConsoleUtil.println(MessageConstants.ANIMAL_DUTY_MESSAGE);
 
-            assignedAnimals = AnimalRepository.getInstance().getAssignedAnimals(handler);
+            List<Animal> assignedAnimals = AnimalRepository.getInstance().getAssignedAnimals(handler);
+
 
             for (int i = 0; i < assignedAnimals.size(); i++){
                 System.out.println((i+1) + ". " + assignedAnimals.get(i).getName());
@@ -37,7 +37,7 @@ public class HandlerModule {
             if(choice == 0){
                 return;
             } else {
-                interactWithAnimal(assignedAnimals.get(choice-1));
+                interactWithAnimal(assignedAnimals.get(choice - 1));
             }
         }
     }
@@ -48,6 +48,7 @@ public class HandlerModule {
 
         switch (actionChoice) {
             case 1:
+                handler.feed(animal);
                 animal.eat();
                 break;
             case 2:

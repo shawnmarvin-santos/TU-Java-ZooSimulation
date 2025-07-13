@@ -1,7 +1,6 @@
 package zoo.model.animal;
 
 import zoo.model.building.Building;
-import zoo.model.building.enclosure.Enclosure;
 import zoo.utils.ConsoleUtil;
 
 public abstract class Bird extends Animal{

@@ -32,6 +32,10 @@ public abstract class Animal {
 
     public String getName(){ return name; }
 
+    public boolean checkIfHealthy(){
+        return healthy;
+    }
+
     public void setHealthy (boolean healthy){
         this.healthy = healthy;
     }

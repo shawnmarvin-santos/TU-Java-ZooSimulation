@@ -36,7 +36,7 @@ public class AdminRepository {
     }
 
     public void openZoo(){
-        if(!checkIfStaffSetup()){
+        if(checkIfStaffSetup()){
             return;
         }
         if(!isZooOpen){
@@ -60,7 +60,7 @@ public class AdminRepository {
             returnValue = false;
             ConsoleUtil.printWaning(MessageConstants.ZOO_STAFF_IS_NOT_YET_SET_UP);
         }
-        return returnValue;
+        return !returnValue;
     }
 
     public void setupStaff(ZooStaff staff){

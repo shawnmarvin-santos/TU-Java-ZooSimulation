@@ -3,6 +3,7 @@ package zoo.module;
 import zoo.model.animal.Bird;
 import zoo.model.animal.Feline;
 import zoo.model.animal.Pachyderm;
+import zoo.model.building.Hospital;
 import zoo.model.people.Handler;
 import zoo.model.people.Vendor;
 import zoo.model.people.Veterinarian;
@@ -104,32 +105,9 @@ public class VisitorModule {
     }
 
     private void visitHospital(){
-        Veterinarian veterinarian = adminRepository.getZooStaff().getVeterinarianOnDuty();
-        visitor.goTo(veterinarian.getLocation());
-
-        ConsoleUtil.println(MessageConstants.VISITOR_VISIT_HOSPITAL_BANNER);
-
-        int option = InputValidationUtil.promptForOption(MessageConstants.CHOOSE_OPTION_PROMPT, 5);
-
-        switch (option){
-            case 1:
-                //healthy=false animals in hospital
-                break;
-            case 2:
-                //healthy=true animals in hospital
-                break;
-            case 3:
-                veterinarian.Lecture();
-                break;
-            case 4:
-                veterinarian.Heal();
-                break;
-            case 5:
-                ConsoleUtil.println(MessageConstants.THANK_YOU_FOR_VISITING_MESSAGE);
-                break;
-            default:
-                break;
-        }
+        HospitalModule hospitalModule = new HospitalModule();
+        visitor.goTo(AdminRepository.getInstance().getZooStaff().getVeterinarianOnDuty().getLocation());
+        hospitalModule.start();
         ConsoleUtil.println(MessageConstants.WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE);
     }
 
