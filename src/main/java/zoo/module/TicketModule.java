@@ -29,13 +29,13 @@ public class TicketModule {
             if (age >= 60){
                 type = "SENIOR";
                 price = 50d;
-            } else if (18 <= age && age >= 59) {
+            } else if (age >= 18) {
                 type = "ADULT";
                 price = 150d;
-            } else if (6 <= age && age >= 17) {
+            } else if (age >= 6) {
                 type = "STUDENT";
                 price = 75d;
-            } else if (0 <= age && age >= 5) {
+            } else if (age >= 0) {
                 type = "CHILD";
                 price = 0d;
             }
