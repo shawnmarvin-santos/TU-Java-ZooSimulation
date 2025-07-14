@@ -15,13 +15,13 @@ public class TicketModule {
 
     public void ticketMainMenu() {
         ConsoleUtil.println(MessageConstants.TICKET_MAIN_MENU_BANNER);
-        int bought = InputValidationUtil.promptForOption("Would you like to buy a ticket? (Yes(1)/No(2): ",2);
+        int bought = InputValidationUtil.promptForOption(MessageConstants.BUY_A_TICKET,2);
         ConsoleUtil.println("");
 
         String name;
         if (bought == 1){
-            name = InputValidationUtil.promptForString("Enter your name: ");
-            int age = (int) InputValidationUtil.promptForDouble("Enter your age: ");
+            name = InputValidationUtil.promptForString(MessageConstants.ENTER_YOUR_NAME_PROMPT);
+            int age = (int) InputValidationUtil.promptForDouble(MessageConstants.ENTER_YOUR_AGE_PROMPT);
             InputValidationUtil.validateNonNegative(age);
 
             String type = "";
@@ -45,16 +45,16 @@ public class TicketModule {
             ConsoleUtil.println("You qualify for a " + type + " ticket.");
             ConsoleUtil.println("Ticket Price: " + formattedPrice);
             ConsoleUtil.println("");
-            int purchaseTicket = InputValidationUtil.promptForOption("Proceed with purcase? Yes(1)/No(2): ",2);
+            int purchaseTicket = InputValidationUtil.promptForOption(MessageConstants.PROCEED_WITH_PURCHASE,2);
             ConsoleUtil.println("");
 
             if (purchaseTicket == 1) {
-                ConsoleUtil.println("Ticket purchased!");
+                ConsoleUtil.println(MessageConstants.TICKET_PURCHASED);
                 int code = random.nextInt(8999) + 1000;
                 this.ticketCode = "ZOO-"+code;
                 ConsoleUtil.println("Your ticket code is: "+this.ticketCode);
 
-                ConsoleUtil.println("[Ticket added to system]");
+                ConsoleUtil.println(MessageConstants.TICKET_ADDED_TO_SYSTEM);
                 ConsoleUtil.println("");
                 Visitor visitor = createVisitor(name);
                 this.visitorEntry(visitor);
@@ -64,14 +64,14 @@ public class TicketModule {
     }
 
     private void visitorEntry(Visitor visitor){
-        ConsoleUtil.println("=== Visitor Entry ===");
+        ConsoleUtil.println(MessageConstants.VISITOR_ENTRY_BANNER);
         while (true) {
-            String ticket = InputValidationUtil.promptForString("Enter your ticket code: ");
+            String ticket = InputValidationUtil.promptForString(MessageConstants.ENTER_YOUR_TICKET_CODE_PROMPT);
             if (ticket.equals(this.ticketCode)) {
                 accesssVisitorModule(visitor);
                 return;
             } else {
-                ConsoleUtil.println("Please try again");
+                ConsoleUtil.println(MessageConstants.PLEASE_TRY_AGAIN);
             }
         }
     }

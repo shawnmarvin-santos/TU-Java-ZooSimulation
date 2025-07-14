@@ -15,6 +15,7 @@ public class MessageConstants {
             5. Exit
             """;
     public static final String ZOO_SETUP_BANNER = "--- Zoo Setup ---";
+    public static final String VISITOR_ENTRY_BANNER ="=== Visitor Entry ===";
     public static final String TICKET_MAIN_MENU_BANNER = """
             === Zoo Ticket Shop ===
             Welcome! Here's what you can expect in the zoo:
@@ -114,8 +115,18 @@ public class MessageConstants {
     public static final String ENTER_MANAGER_PROMPT = "Enter Manager's name: ";
     public static final String ENTER_HANDLER_PROMPT = "Enter Handle's name: ";
     public static final String ENTER_ANIMAL_PROMPT = "Choose animal number to interact with (0 to exit): ";
+    public static final String ENTER_YOUR_NAME_PROMPT = "Enter your name: ";
+    public static final String ENTER_YOUR_AGE_PROMPT = "Enter your age: ";
+    public static final String ENTER_YOUR_TICKET_CODE_PROMPT = "Enter your ticket code: ";
+    public static final String BUY_A_TICKET = "Would you like to buy a ticket? (Yes(1)/No(2): ";
+    public static final String PROCEED_WITH_PURCHASE = "Proceed with purcase? Yes(1)/No(2): ";
 
     //GENERIC MESSAGES
     public static final String THANK_YOU_FOR_VISITING_MESSAGE = "Thank you for visiting!";
     public static final String WHAT_WOULD_YOU_LIKE_TO_DO_NEXT_MESSAGE = "What would you like to do next?";
+    public static final String PLEASE_TRY_AGAIN = "Please try again";
+
+    //TICKET MODULE MESSAGES
+    public static final String TICKET_PURCHASED = "Ticket Purchased";
+    public static final String TICKET_ADDED_TO_SYSTEM = "[Ticket added to system]";
 }
